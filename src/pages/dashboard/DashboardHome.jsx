@@ -11,6 +11,7 @@ import {
 } from "../../context/DarkModeContext";
 import Loader from "../../utils/Loader";
 import ErrorPage from "../ErrorPage";
+import ViewModal from "../../components/ViewModal";
 
 const { VITE_APP_URL } = import.meta.env;
 
@@ -154,36 +155,10 @@ const DashboardHome = () => {
           )}
         </div>
         {isModalViewOpen && viewTask && (
-          <div
-            className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
-            onClick={() => setIsModalOpen(false)}
-          >
-            <div
-              className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg w-96"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <h2 className="text-xl font-semibold mb-4 text-[#ffff]">
-                Task Details
-              </h2>
-              <p className="text-gray-900 dark:text-gray-100">
-                <strong>Title:</strong> {viewTask.title}
-              </p>
-              <p className="text-gray-600 dark:text-gray-300">
-                <strong>Description:</strong> {viewTask.description}
-              </p>
-              <p className="text-gray-600 dark:text-gray-300">
-                <strong>Status:</strong>{" "}
-                {viewTask.completed ? "Completed ✅" : "Pending ⏳"}
-              </p>
-
-              <button
-                className="mt-4 w-full bg-gray-400 text-white px-4 py-2 rounded"
-                onClick={() => setIsModalViewOpen(false)}
-              >
-                Close
-              </button>
-            </div>
-          </div>
+          <ViewModal
+            onViewOpen={setIsModalViewOpen}
+            viewTask={viewTask}
+          />
         )}
         {/* Task Form Modal */}
         {isModalOpen && (
