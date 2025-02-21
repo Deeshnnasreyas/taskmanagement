@@ -1,8 +1,19 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import TaskForm from "./TaskForm"; // Import updated TaskForm
+import {
+  PencilSquareIcon,
+  EyeIcon,
+  TrashIcon,
+} from "@heroicons/react/24/solid";
 
-const TaskList = ({ tasks, onDeleteTask, onSaveTask, onToggleStatus }) => {
+const TaskList = ({
+  tasks,
+  onDeleteTask,
+  onSaveTask,
+  onToggleStatus,
+  onViewTask,
+}) => {
   const [taskToDelete, setTaskToDelete] = useState(null);
   const [filter, setFilter] = useState("all");
   const [sortOrder, setSortOrder] = useState("asc");
@@ -87,18 +98,25 @@ const TaskList = ({ tasks, onDeleteTask, onSaveTask, onToggleStatus }) => {
                   </span>
                 </td>
                 <td className="p-3">{task.dueDate || "N/A"}</td>
+
                 <td className="p-3 flex justify-center gap-2">
                   <button
-                    onClick={() => setEditTask(task)}
-                    className="bg-blue-500 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm"
+                    onClick={() => onViewTask(task)}
+                    className="p-2  text-yellow-500 rounded cursor-pointer"
                   >
-                    Edit
+                    <EyeIcon className="w-5 h-5" />
+                  </button>
+                  <button
+                    onClick={() => setEditTask(task)}
+                    className=" cursor-pointer text-green-600 px-3 py-1 rounded text-sm"
+                  >
+                    <PencilSquareIcon className="w-5 h-5" />
                   </button>
                   <button
                     onClick={() => setTaskToDelete(task)}
-                    className="bg-red-500 hover:bg-red-700 text-white px-3 py-1 rounded text-sm"
+                    className="cursor-pointer text-red-700 px-3 py-1 rounded text-sm"
                   >
-                    Delete
+                    <TrashIcon className="w-5 h-5" />
                   </button>
                   <label className="relative inline-flex items-center cursor-pointer">
                     <input
@@ -192,6 +210,7 @@ TaskList.propTypes = {
   onDeleteTask: PropTypes.func.isRequired,
   onSaveTask: PropTypes.func.isRequired,
   onToggleStatus: PropTypes.func.isRequired,
+  onViewTask: PropTypes.func.isRequired,
 };
 
 export default TaskList;

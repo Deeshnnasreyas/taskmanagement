@@ -20,6 +20,7 @@ const taskSchema = yup.object().shape({
 });
 
 const TaskForm = ({ onSaveTask, task, onClose }) => {
+  console.log("taskkk", task);
   const [formError, setFormError] = useState(null);
   const {
     register,
@@ -48,7 +49,7 @@ const TaskForm = ({ onSaveTask, task, onClose }) => {
         id: task?.id || Date.now(),
         title: data.title,
         dueDate: data.dueDate,
-        completed: data.status === "true", 
+        completed: data.status === "true",
       });
       reset();
       onClose();
