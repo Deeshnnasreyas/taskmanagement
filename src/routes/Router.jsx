@@ -2,7 +2,7 @@ import React from "react";
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import App from "../App";
 import AuthRoutes from "./AuthRoutes";
-import dashboardRoutes from "./dashboardRoutes";
+import DashboardRoutes from "./DashboardRoutes";
 const Router = createBrowserRouter([
   {
     path: "/",
@@ -13,7 +13,7 @@ const Router = createBrowserRouter([
     element: <App />,
     children: [...AuthRoutes],
   },
-  ...dashboardRoutes,
+  ...DashboardRoutes,
 ]);
 
 export default Router;
