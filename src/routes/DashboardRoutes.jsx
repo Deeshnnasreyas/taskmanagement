@@ -6,7 +6,7 @@ import ProfilePage from "../pages/dashboard/ProfilePage";
 import SettingsPage from "../pages/dashboard/SettingsPage";
 import ErrorPage from "../pages/ErrorPage";
 
-const dashboardRoutes = [
+const DashboardRoutes = [
   {
     path: "/dashboard",
     element: (
@@ -23,4 +23,4 @@ const dashboardRoutes = [
   },
 ];
 
-export default dashboardRoutes;
+export default DashboardRoutes;
