@@ -2,7 +2,7 @@ import React from "react";
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import App from "../App";
 import AuthRoutes from "./AuthRoutes";
-import DashboardRoutes from "./dashboardRoutes";
+import DashboardRoutes from "./DashboardRoutes";
 const Router = createBrowserRouter([
   {
     path: "/",
