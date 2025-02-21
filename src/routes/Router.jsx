@@ -1,7 +1,7 @@
 import React from "react";
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import App from "../App";
-import AuthRoutes from "./authRoutes";
+import AuthRoutes from "./AuthRoutes";
 import dashboardRoutes from "./dashboardRoutes";
 const Router = createBrowserRouter([
   {
