@@ -4,6 +4,7 @@ import DashboardHome from "../pages/dashboard/DashboardHome";
 import ProtectedRoute from "./ProtectedRoute"; // For authentication check
 import ProfilePage from "../pages/dashboard/ProfilePage";
 import SettingsPage from "../pages/dashboard/SettingsPage";
+import ErrorPage from "../pages/ErrorPage";
 
 const dashboardRoutes = [
   {
@@ -17,6 +18,7 @@ const dashboardRoutes = [
       { path: "", element: <DashboardHome /> }, // Default dashboard home
       { path: "/dashboard/profile", element: <ProfilePage /> },
       { path: "/dashboard/settings", element: <SettingsPage /> },
+      { path: "*", element: <ErrorPage /> },
     ],
   },
 ];

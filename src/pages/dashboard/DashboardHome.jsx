@@ -9,6 +9,8 @@ import {
   DarkModeContext,
   DarkModeProvider,
 } from "../../context/DarkModeContext";
+import Loader from "../../utils/Loader";
+import ErrorPage from "../ErrorPage";
 
 const { VITE_APP_URL } = import.meta.env;
 
@@ -129,8 +131,10 @@ const DashboardHome = () => {
             Add Task
           </button>
 
-          {isLoading && <p>Loading tasks...</p>}
-          {isError && <p>Something went wrong</p>}
+          {isLoading && <Loader />}
+          {isError && (
+            <ErrorPage message="Failed to load tasks. Please try again later." />
+          )}
           {tasks && (
             <TaskList
               tasks={tasks}
